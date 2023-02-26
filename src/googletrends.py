@@ -12,7 +12,7 @@ class Trends():
         self.keywords = keywords
 
         # set to 1 month by default 
-        self.timeframe = 'today 3-m'
+        self.timeframe = 'today 1-m'
 
         # set the geography, by default we set it to New York in the US to get wallstreet saturated data
 
@@ -47,5 +47,5 @@ class Trends():
 
 
 
-test = Trends(['TESLA'])
+test = Trends(['TESLA', 'ELON'])
 test.publish_data('test.csv')
