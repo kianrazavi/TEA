@@ -8,7 +8,7 @@ import os
 class Trends():
     def __init__(self, keywords):
 
-        # should be in a string list format, all the key words 
+        # should be in a string list format, all the key words
         self.keywords = keywords
 
         # set to 1 month by default 
@@ -39,11 +39,11 @@ class Trends():
         return daily_trends
 
 
-    def publish_data(self, name):
+    def publish_data(self, name, path):
         # publish the trends data to a csv in some path
         daily_trends = self.raw_trends()
 
-        daily_trends.to_csv(os.path.join('/Users/martinturuta/Desktop/Pandas Tutorial/Trends output', name))
+        daily_trends.to_csv(os.path.join(path, name))
 
 
 
