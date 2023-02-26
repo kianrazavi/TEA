@@ -27,7 +27,14 @@ class Trends():
 
         # get the raw trend data from the pytrends library 
 
-        pytrends = TrendReq(hl='en-US', tz=360)
+        try:
+
+            pytrends = TrendReq(hl='en-US', tz=360)
+
+        except:
+            
+            pytrends = TrendReq(hl='en-US', tz=360, timeout=(10,25), proxies=['https://34.203.233.13:80',], retries=2, backoff_factor=0.1, requests_args={'verify':False})
+
 
         kw_list = self.keywords
 
@@ -45,7 +52,3 @@ class Trends():
 
         daily_trends.to_csv(os.path.join(path, name))
 
-
-
-test = Trends(['TESLA', 'ELON'])
-test.publish_data('test.csv')
